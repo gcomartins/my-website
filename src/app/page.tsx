@@ -1,15 +1,18 @@
 import Head from "next/head";
 import styles from "./page.module.css";
 
-
 export default function Home() {
+  const title = "Hello, there!"
+  const description = "This is my portfolio website! Lets check!";
+  const image = "/preview.png";
+
   return (
     <>
       <Head>
         <title>Hii</title>
-        <meta property='og:title' content={property.name} />
-        <meta property='og:description' content={property.description} />
-        <meta property='og:image' content={property.image} />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={description} />
+        <meta property='og:image' content={image} />
         <meta property='og:url' content='https://gcomartins.github.io/my-website/' />
         <meta property='og:type' content='website' />
       </Head>
@@ -25,5 +28,5 @@ export default function Home() {
         </ul>
       </div>
     </>
-  )
+  );
 }
