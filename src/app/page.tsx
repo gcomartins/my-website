@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <p>Hey, there!</p>
-      <p>My name is Guilherme and this is my website!</p>
+      <p>My name is Guilherme and this is my website!<br/>I'm a mobile developer, focused in Android, with 2 years of experience.</p>
       <p>My main techonolgies are:</p>
       <ul className={styles.list}>
         <i>Android Kotlin/Java (2 years)</i>
