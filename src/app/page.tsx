@@ -1,19 +1,20 @@
-import Link from 'next/link';
+"use client"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/home/page';
+import ContactPage from './pages/contact/page';
+import ProjectsPage from './pages/projects/page';
 
-export default function Home() {
+function App() {
+  const basePath = "/my-website"
   return (
-    <div>
-      <h1>Hello, there!</h1>
-      <p>My name is Guilherme and this is my website!</p>
-      <p>I am a mobile developer, focused in Android, with 2 years of experience.</p>
-      <p>My main techonolgies are:</p>
-      <ul>
-        <i>Android Kotlin/Java (2 years)</i>
-        <i>React/React Native (1 year)</i>
-        <i>Javascript (1 year)</i>
-        <i>Flutter (1 and a half year)</i>
-      </ul>
-      <Link href='/projects'>See my projects</Link>
-    </div>
+    <Router>
+      <Routes>
+        <Route path={basePath} element={<HomePage />} />
+        <Route path={`${basePath}/contact`} element={<ContactPage />} />
+        <Route path={`${basePath}/projects`} element={<ProjectsPage />} />
+      </Routes>
+    </Router>
   );
 }
+
+export default App;

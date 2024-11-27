@@ -5,7 +5,7 @@ const projetos = [
   { id: 2, nome: 'Projeto 2', descricao: 'Descrição do Projeto 2', link: '#' },
 ];
 
-export default function Projects() {
+const ProjectsPage = () => {
   return (
     <div>
       <h1>Meus Projetos</h1>
@@ -22,3 +22,5 @@ export default function Projects() {
     </div>
   );
 }
+
+export default ProjectsPage

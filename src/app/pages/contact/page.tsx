@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function Contact() {
+const ContactPage = () => {
     return (
         <div>
             <h1>Contato</h1>
@@ -20,3 +20,5 @@ export default function Contact() {
         </div>
     );
 }
+
+export default ContactPage
