@@ -8,6 +8,8 @@ import Intl from "./intl/language";
 import ThemeVariation from "./theme/theme";
 import BlackTheme from "./theme/variations/blackTheme";
 import WhiteTheme from "./theme/variations/whiteTheme";
+import YellowTheme from "./theme/variations/yellowTheme";
+import OrangeTheme from "./theme/variations/orangeTheme";
 
 export default function Home() {
   const [themeVariation, setThemeVariation] = useState(0)
@@ -17,6 +19,10 @@ export default function Home() {
         return new BlackTheme()
       case 1:
         return new WhiteTheme();
+      case 2:
+        return new YellowTheme()
+      case 3:
+        return new OrangeTheme()
       default:
         return new BlackTheme()
     }
@@ -32,7 +38,7 @@ export default function Home() {
   const previewImage = "/preview.png";
 
   const switchLanguage = () => setIsEnglish(!isEnglish)
-  const switchTheme = () => setThemeVariation(themeVariation === 0 ? 1 : 0)
+  const switchTheme = () => setThemeVariation(themeVariation === 3 ? 0 : themeVariation + 1)
 
   return (
     <>
@@ -44,7 +50,7 @@ export default function Home() {
         <meta property='og:url' content='https://gcomartins.github.io/my-website/' />
         <meta property='og:type' content='website' />
       </Head>
-      <div style={{backgroundColor: theme.getBackgroundColor()}} className={styles.page}>
+      <div style={{ backgroundColor: theme.getBackgroundColor() }} className={styles.page}>
         <div>
           <button onClick={switchLanguage}>Change language</button>
           <button onClick={switchTheme}>Change theme</button>
