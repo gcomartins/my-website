@@ -10,6 +10,12 @@ class Portuguese implements Intl {
     getMyMainTechnologies(): string {
         return "Minhas principais linguagens de programacao sao:"
     }
+    getChangeLanguageLabel(): string {
+        return "Trocar linguagem"
+    }
+    getChangeThemeLabel(): string {
+        return "Trocar tema"
+    }
 }
 
 export default Portuguese

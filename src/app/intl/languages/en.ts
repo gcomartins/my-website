@@ -10,6 +10,12 @@ class English implements Intl {
     getMyMainTechnologies(): string {
         return "My main techonolgies are:"
     }
+    getChangeLanguageLabel(): string {
+        return "Change language"
+    }
+    getChangeThemeLabel(): string {
+        return "Change theme"
+    }
 }
 
 export default English
