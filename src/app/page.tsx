@@ -50,7 +50,7 @@ export default function Home() {
         <meta property='og:url' content='https://gcomartins.github.io/my-website/' />
         <meta property='og:type' content='website' />
       </Head>
-      <div style={{ backgroundColor: theme.getBackgroundColor() }} className={styles.page}>
+      <div style={{ backgroundColor: theme.getBackgroundColor(), transition: "0.7s" }} className={styles.page}>
         <div>
           <button onClick={switchLanguage}>Change language</button>
           <button onClick={switchTheme}>Change theme</button>
