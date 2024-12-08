@@ -5,8 +5,23 @@ import { useMemo, useState } from "react";
 import English from "./intl/languages/en";
 import Portuguese from "./intl/languages/pt";
 import Intl from "./intl/language";
+import ThemeVariation from "./theme/theme";
+import BlackTheme from "./theme/variations/blackTheme";
+import WhiteTheme from "./theme/variations/whiteTheme";
 
 export default function Home() {
+  const [themeVariation, setThemeVariation] = useState(0)
+  const theme = useMemo<ThemeVariation>(() => {
+    switch (themeVariation) {
+      case 0:
+        return new BlackTheme()
+      case 1:
+        return new WhiteTheme();
+      default:
+        return new BlackTheme()
+    }
+  }, [themeVariation]);
+
   const [isEnglish, setIsEnglish] = useState(true);
   const intl = useMemo<Intl>(() => {
     return isEnglish ? new English() : new Portuguese()
@@ -17,6 +32,7 @@ export default function Home() {
   const previewImage = "/preview.png";
 
   const switchLanguage = () => setIsEnglish(!isEnglish)
+  const switchTheme = () => setThemeVariation(themeVariation === 0 ? 1 : 0)
 
   return (
     <>
@@ -28,12 +44,15 @@ export default function Home() {
         <meta property='og:url' content='https://gcomartins.github.io/my-website/' />
         <meta property='og:type' content='website' />
       </Head>
-      <div className={styles.page}>
-        <button onClick={switchLanguage}>Change language</button>
-        <p>{intl.getTitle()}</p>
-        <p>{intl.getDescription()}</p>
-        <p>{intl.getMyMainTechnologies()}</p>
-        <ul className={styles.list}>
+      <div style={{backgroundColor: theme.getBackgroundColor()}} className={styles.page}>
+        <div>
+          <button onClick={switchLanguage}>Change language</button>
+          <button onClick={switchTheme}>Change theme</button>
+        </div>
+        <p style={{ color: theme.getForegroundColor() }}>{intl.getTitle()}</p>
+        <p style={{ color: theme.getForegroundColor() }}>{intl.getDescription()}</p>
+        <p style={{ color: theme.getForegroundColor() }}>{intl.getMyMainTechnologies()}</p>
+        <ul style={{ color: theme.getForegroundColor() }} className={styles.list}>
           <i>Android Kotlin/Java (2 years)</i>
           <i>React/React Native (1 year)</i>
           <i>Javascript (1 year)</i>
