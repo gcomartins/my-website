@@ -81,9 +81,9 @@ jobs:
 
       - name: Build with Next.js
         env:
-          NEXT_PUBLIC_LITERALLY_ME: ${{ env.NEXT_PUBLIC_LITERALLY_ME }}
-          NODE_ENV: ${{ env.NODE_ENV }}
-        run: | 
+          NEXT_PUBLIC_LITERALLY_ME: ${{ secrets.NEXT_PUBLIC_LITERALLY_ME }}
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+        run: |
           echo 'NEXT_PUBLIC_LITERALLY_ME ${{ env.NEXT_PUBLIC_LITERALLY_ME }}'
           echo 'NODE_ENV ${{ env.NODE_ENV }}'
           ${{ steps.detect-package-manager.outputs.runner }} next build
