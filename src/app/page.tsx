@@ -1,12 +1,29 @@
 "use client"
 import Head from "next/head";
 import styles from "./page.module.css";
-import { useMemo, useState } from "react";
+import { CSSProperties, useMemo, useState } from "react";
 import English from "./intl/languages/en";
 import Portuguese from "./intl/languages/pt";
 import Intl from "./intl/language";
+import ThemeVariation from "./theme/theme";
+import BlackTheme from "./theme/variations/blackTheme";
+import WhiteTheme from "./theme/variations/whiteTheme";
+import MyNavBar from "./components/navbar/myNavbar";
+import AboutMe from "./components/aboutMe/aboutMe";
 
 export default function Home() {
+  const [themeVariation, setThemeVariation] = useState(0)
+  const theme = useMemo<ThemeVariation>(() => {
+    switch (themeVariation) {
+      case 0:
+        return new BlackTheme()
+      case 1:
+        return new WhiteTheme();
+      default:
+        return new BlackTheme()
+    }
+  }, [themeVariation]);
+
   const [isEnglish, setIsEnglish] = useState(true);
   const intl = useMemo<Intl>(() => {
     return isEnglish ? new English() : new Portuguese()
@@ -17,7 +34,9 @@ export default function Home() {
   const previewImage = "/preview.png";
 
   const switchLanguage = () => setIsEnglish(!isEnglish)
+  const switchTheme = () => setThemeVariation(themeVariation === 1 ? 0 : themeVariation + 1)
 
+  const myStyles = handleStyles(theme)
   return (
     <>
       <Head>
@@ -28,18 +47,29 @@ export default function Home() {
         <meta property='og:url' content='https://gcomartins.github.io/my-website/' />
         <meta property='og:type' content='website' />
       </Head>
-      <div className={styles.page}>
-        <button onClick={switchLanguage}>Change language</button>
-        <p>{intl.getTitle()}</p>
-        <p>{intl.getDescription()}</p>
-        <p>{intl.getMyMainTechnologies()}</p>
-        <ul className={styles.list}>
-          <i>Android Kotlin/Java (2 years)</i>
-          <i>React/React Native (1 year)</i>
-          <i>Javascript (1 year)</i>
-          <i>Flutter (1 and a half year)</i>
-        </ul>
+      <div style={myStyles.page} className={styles.page}>
+        <MyNavBar theme={theme} intl={intl} switchLanguage={switchLanguage} switchTheme={switchTheme} />
+        <AboutMe theme={theme} intl={intl} />
       </div>
     </>
   );
+}
+
+const handleStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (theme: ThemeVariation) => {
+  return {
+    page: {
+      backgroundColor: theme.getBackgroundColor(),
+      transition: "0.7s",
+    },
+    content: {
+      paddingLeft: "40px",
+      paddingRight: "40px",
+      paddingTop: "80px"
+    },
+    list: {
+      color: theme.getForegroundColor(),
+      display: 'flex',
+      flexDirection: 'column'
+    }
+  }
 }
