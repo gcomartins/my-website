@@ -35,6 +35,7 @@ export default function Home() {
   const switchLanguage = () => setIsEnglish(!isEnglish)
   const switchTheme = () => setThemeVariation(themeVariation === 1 ? 0 : themeVariation + 1)
 
+  const myStyles = handleStyles(theme)
   return (
     <>
       <Head>
@@ -45,28 +46,39 @@ export default function Home() {
         <meta property='og:url' content='https://gcomartins.github.io/my-website/' />
         <meta property='og:type' content='website' />
       </Head>
-      <div style={{ backgroundColor: theme.getBackgroundColor(), transition: "0.7s" }} className={styles.page}>
+      <div style={myStyles.page} className={styles.page}>
         <MyNavBar theme={theme} intl={intl} switchLanguage={switchLanguage} switchTheme={switchTheme} />
-        <p style={{ color: theme.getForegroundColor() }}>{intl.getTitle()}</p>
-        <p style={{ color: theme.getForegroundColor() }}>{intl.getDescription()}</p>
-        <p style={{ color: theme.getForegroundColor() }}>{intl.getMyMainTechnologies()}</p>
-        <ul style={myStyles(theme).list} className={styles.list}>
-          <i>{intl.getFirstTechLabel()}</i>
-          <i>{intl.getSecondTechLabel()}</i>
-          <i>{intl.getThirdTechLabel()}</i>
-          <i>{intl.getFourthTechLabel()}</i>
-        </ul>
+        <div style={myStyles.content}>
+          <p style={{ color: theme.getForegroundColor() }}>{intl.getTitle()}</p>
+          <p style={{ color: theme.getForegroundColor() }}>{intl.getDescription()}</p>
+          <p style={{ color: theme.getForegroundColor() }}>{intl.getMyMainTechnologies()}</p>
+          <ul style={myStyles.list} className={styles.list}>
+            <i>{intl.getFirstTechLabel()}</i>
+            <i>{intl.getSecondTechLabel()}</i>
+            <i>{intl.getThirdTechLabel()}</i>
+            <i>{intl.getFourthTechLabel()}</i>
+          </ul>
+        </div>
       </div>
     </>
   );
 }
 
-const myStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (theme: ThemeVariation) => {
+const handleStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (theme: ThemeVariation) => {
   return {
-    list: { 
-      color: theme.getForegroundColor(), 
-      display: 'flex', 
-      flexDirection: 'column' 
+    page: {
+      backgroundColor: theme.getBackgroundColor(),
+      transition: "0.7s",
+    },
+    content: {
+      paddingLeft: "40px",
+      paddingRight: "40px",
+      paddingTop: "80px"
+    },
+    list: {
+      color: theme.getForegroundColor(),
+      display: 'flex',
+      flexDirection: 'column'
     }
   }
 }
