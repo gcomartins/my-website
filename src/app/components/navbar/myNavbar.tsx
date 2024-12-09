@@ -20,14 +20,26 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     };
 
     const myStyles = handleStyles(theme)
+
+    const aboutMe = intl.getAboutMeLabel()
+    const scrollToAboutMe = () => scrollToSection('#aboutMe')
+
+    const myExperiences = intl.getMyExperienceLabel()
+    const scrollToMyExperiences = () => scrollToSection('#myExperience')
+
+    const myProjects = intl.getMyProjectsLabel()
+    const scrollToMyProjects = () => scrollToSection('#myProjects')
+
+    const changeTheme = intl.getChangeThemeLabel()
+    const changeLanguage = intl.getChangeLanguageLabel()
     return (
         <nav style={myStyles.navbar}>
-            <h3 style={myStyles.label} onClick={() => scrollToSection('#aboutMe')}>{intl.getAboutMeLabel()}</h3>
-            <h3 style={myStyles.label} onClick={() => scrollToSection('#myExperience')}>{intl.getMyExperienceLabel()}</h3>
-            <h3 style={myStyles.label} onClick={() => scrollToSection('#myProjects')}>{intl.getMyProjectsLabel()}</h3>
+            <h3 style={myStyles.label} onClick={scrollToAboutMe}>{aboutMe}</h3>
+            <h3 style={myStyles.label} onClick={scrollToMyExperiences}>{myExperiences}</h3>
+            <h3 style={myStyles.label} onClick={scrollToMyProjects}>{myProjects}</h3>
             <div>
-                <MyButton theme={theme} label={intl.getChangeThemeLabel()} onClick={switchTheme} />
-                <MyButton theme={theme} label={intl.getChangeLanguageLabel()} onClick={switchLanguage} />
+                <MyButton theme={theme} label={changeTheme} onClick={switchTheme} />
+                <MyButton theme={theme} label={changeLanguage} onClick={switchLanguage} />
             </div>
         </nav>
     );
