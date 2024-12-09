@@ -51,7 +51,11 @@ const handleStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (
             width: '100vw',
             display: 'flex',
             justifyContent: 'space-around',
-            padding: '10px',
+            paddingTop: '20px',
+            paddingBottom: '20px',
+            paddingRight: '10px',
+            paddingLeft: '10px',
+            transition: '0.7s',
             backgroundColor: theme.getBackgroundColor()
         },
         label: {

@@ -9,6 +9,7 @@ import ThemeVariation from "./theme/theme";
 import BlackTheme from "./theme/variations/blackTheme";
 import WhiteTheme from "./theme/variations/whiteTheme";
 import MyNavBar from "./components/navbar/myNavbar";
+import AboutMe from "./components/aboutMe/aboutMe";
 
 export default function Home() {
   const [themeVariation, setThemeVariation] = useState(0)
@@ -48,17 +49,7 @@ export default function Home() {
       </Head>
       <div style={myStyles.page} className={styles.page}>
         <MyNavBar theme={theme} intl={intl} switchLanguage={switchLanguage} switchTheme={switchTheme} />
-        <div style={myStyles.content}>
-          <p style={{ color: theme.getForegroundColor() }}>{intl.getTitle()}</p>
-          <p style={{ color: theme.getForegroundColor() }}>{intl.getDescription()}</p>
-          <p style={{ color: theme.getForegroundColor() }}>{intl.getMyMainTechnologies()}</p>
-          <ul style={myStyles.list} className={styles.list}>
-            <i>{intl.getFirstTechLabel()}</i>
-            <i>{intl.getSecondTechLabel()}</i>
-            <i>{intl.getThirdTechLabel()}</i>
-            <i>{intl.getFourthTechLabel()}</i>
-          </ul>
-        </div>
+        <AboutMe theme={theme} intl={intl} />
       </div>
     </>
   );

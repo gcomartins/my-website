@@ -16,6 +16,7 @@ const MyButton: React.FC<MyButtonProps> = ({ theme, label, onClick }) => {
         paddingRight: 16,
         paddingTop: 4,
         paddingBottom: 4,
+        transition: '0.7s',
     };
 
     return <button onClick={onClick} style={myStyle}>{label}</button>;
