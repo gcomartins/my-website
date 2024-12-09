@@ -8,7 +8,8 @@ import Intl from "./intl/language";
 import ThemeVariation from "./theme/theme";
 import BlackTheme from "./theme/variations/blackTheme";
 import WhiteTheme from "./theme/variations/whiteTheme";
-import MyButton from "./components/myButton";
+import MyButton from "./components/button/myButton";
+import MyNavBar from "./components/navbar/myNavbar";
 
 export default function Home() {
   const [themeVariation, setThemeVariation] = useState(0)
@@ -46,10 +47,7 @@ export default function Home() {
         <meta property='og:type' content='website' />
       </Head>
       <div style={{ backgroundColor: theme.getBackgroundColor(), transition: "0.7s" }} className={styles.page}>
-        <div>
-          <MyButton onClick={switchLanguage} theme={theme} label={intl.getChangeLanguageLabel()} />
-          <MyButton onClick={switchTheme} theme={theme} label={intl.getChangeThemeLabel()} />
-        </div>
+        <MyNavBar theme={theme} intl={intl} switchLanguage={switchLanguage} switchTheme={switchTheme} />
         <p style={{ color: theme.getForegroundColor() }}>{intl.getTitle()}</p>
         <p style={{ color: theme.getForegroundColor() }}>{intl.getDescription()}</p>
         <p style={{ color: theme.getForegroundColor() }}>{intl.getMyMainTechnologies()}</p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CSSProperties } from 'react';
-import ThemeVariation from '../theme/theme';
+import ThemeVariation from '../../theme/theme';
 
 interface MyButtonProps {
     theme: ThemeVariation;
