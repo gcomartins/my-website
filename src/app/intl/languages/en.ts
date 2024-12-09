@@ -28,6 +28,15 @@ class English implements Intl {
     getFourthTechLabel(): string {
         return "Flutter (1 and a half year)"
     }
+    getAboutMeLabel(): string {
+        return "About me"
+    }
+    getMyExperienceLabel(): string {
+        return "My Experience"
+    }
+    getMyProjectsLabel(): string {
+        return "My projects"
+    }
 }
 
 export default English

@@ -1,14 +1,13 @@
 "use client"
 import Head from "next/head";
 import styles from "./page.module.css";
-import { useMemo, useState } from "react";
+import { CSSProperties, useMemo, useState } from "react";
 import English from "./intl/languages/en";
 import Portuguese from "./intl/languages/pt";
 import Intl from "./intl/language";
 import ThemeVariation from "./theme/theme";
 import BlackTheme from "./theme/variations/blackTheme";
 import WhiteTheme from "./theme/variations/whiteTheme";
-import MyButton from "./components/button/myButton";
 import MyNavBar from "./components/navbar/myNavbar";
 
 export default function Home() {
@@ -51,7 +50,7 @@ export default function Home() {
         <p style={{ color: theme.getForegroundColor() }}>{intl.getTitle()}</p>
         <p style={{ color: theme.getForegroundColor() }}>{intl.getDescription()}</p>
         <p style={{ color: theme.getForegroundColor() }}>{intl.getMyMainTechnologies()}</p>
-        <ul style={{ color: theme.getForegroundColor() }} className={styles.list}>
+        <ul style={myStyles(theme).list} className={styles.list}>
           <i>{intl.getFirstTechLabel()}</i>
           <i>{intl.getSecondTechLabel()}</i>
           <i>{intl.getThirdTechLabel()}</i>
@@ -60,4 +59,14 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+const myStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (theme: ThemeVariation) => {
+  return {
+    list: { 
+      color: theme.getForegroundColor(), 
+      display: 'flex', 
+      flexDirection: 'column' 
+    }
+  }
 }

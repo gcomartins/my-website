@@ -20,7 +20,10 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     };
 
     return (
-        <nav style={{ display: 'flex', justifyContent: 'space-around', padding: '10px', backgroundColor: theme.getBackgroundColor() }}>
+        <nav style={{ width: '100vw', display: 'flex', justifyContent: 'space-around', padding: '10px', backgroundColor: theme.getForegroundColor() }}>
+            <h3 onClick={() => scrollToSection('aboutMe')}>{intl.getAboutMeLabel()}</h3>
+            <h3 onClick={() => scrollToSection('aboutMe')}>{intl.getMyExperienceLabel()}</h3>
+            <h3 onClick={() => scrollToSection('aboutMe')}>{intl.getMyProjectsLabel()}</h3>
             <MyButton theme={theme} label={intl.getChangeThemeLabel()} onClick={switchTheme} />
             <MyButton theme={theme} label={intl.getChangeLanguageLabel()} onClick={switchLanguage} />
         </nav>

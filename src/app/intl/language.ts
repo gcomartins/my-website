@@ -8,6 +8,9 @@ interface Intl {
     getSecondTechLabel(): string
     getThirdTechLabel(): string
     getFourthTechLabel(): string
+    getAboutMeLabel(): string
+    getMyExperienceLabel(): string
+    getMyProjectsLabel(): string
 }
 
 export default Intl
