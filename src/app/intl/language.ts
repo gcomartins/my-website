@@ -4,6 +4,10 @@ interface Intl {
     getMyMainTechnologies(): string
     getChangeThemeLabel(): string
     getChangeLanguageLabel(): string
+    getFirstTechLabel(): string
+    getSecondTechLabel(): string
+    getThirdTechLabel(): string
+    getFourthTechLabel(): string
 }
 
 export default Intl

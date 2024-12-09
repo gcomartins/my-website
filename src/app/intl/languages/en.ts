@@ -16,6 +16,18 @@ class English implements Intl {
     getChangeThemeLabel(): string {
         return "Change theme"
     }
+    getFirstTechLabel(): string {
+        return "Android Kotlin/Java (2 years)"
+    }
+    getSecondTechLabel(): string {
+        return "React/React Native (1 year)"
+    }
+    getThirdTechLabel(): string {
+        return "Javascript (1 year)"
+    }
+    getFourthTechLabel(): string {
+        return "Flutter (1 and a half year)"
+    }
 }
 
 export default English
