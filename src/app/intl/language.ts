@@ -11,6 +11,7 @@ interface Intl {
     getAboutMeLabel(): string
     getMyExperienceLabel(): string
     getMyProjectsLabel(): string
+    getTooltipOnImageLabel(): string
 }
 
 export default Intl

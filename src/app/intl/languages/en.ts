@@ -37,6 +37,9 @@ class English implements Intl {
     getMyProjectsLabel(): string {
         return "My projects"
     }
+    getTooltipOnImageLabel(): string {
+        return "Literally me!"
+    }
 }
 
 export default English

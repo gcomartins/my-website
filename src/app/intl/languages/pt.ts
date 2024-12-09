@@ -37,6 +37,9 @@ class Portuguese implements Intl {
     getMyProjectsLabel(): string {
         return "Meus projetos"
     }
+    getTooltipOnImageLabel(): string {
+        return "Literalmente eu!"
+    }
 }
 
 export default Portuguese
