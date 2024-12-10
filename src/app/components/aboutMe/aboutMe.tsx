@@ -81,7 +81,6 @@ const handleStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (
             display: 'flex',
             alignItems: 'center',
             gap: '36px',
-            backgroundColor: 'red'
         },
         list: {
             color: theme.getForegroundColor(),
