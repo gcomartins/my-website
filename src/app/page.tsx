@@ -10,6 +10,7 @@ import BlackTheme from "./theme/variations/blackTheme";
 import WhiteTheme from "./theme/variations/whiteTheme";
 import MyNavBar from "./components/navbar/myNavbar";
 import AboutMe from "./components/aboutMe/aboutMe";
+import AppState from "./appState";
 
 export default function Home() {
   const [themeVariation, setThemeVariation] = useState(0)
@@ -34,7 +35,10 @@ export default function Home() {
   const previewImage = "/preview.png";
 
   const switchLanguage = () => setIsEnglish(!isEnglish)
-  const switchTheme = () => setThemeVariation(themeVariation === 1 ? 0 : themeVariation + 1)
+  const switchTheme = () => {
+    AppState.isDarkMode = !AppState.isDarkMode
+    setThemeVariation(themeVariation === 1 ? 0 : themeVariation + 1)
+  }
 
   const myStyles = handleStyles(theme)
   return (

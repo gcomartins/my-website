@@ -2,6 +2,8 @@ import React, { CSSProperties } from 'react';
 import ThemeVariation from '../../theme/theme';
 import MyButton from '../button/myButton';
 import Intl from '@/app/intl/language';
+import MyThemeToggle from '../toggle/myToggle';
+import AppState from '@/app/appState';
 
 interface MyNavBarProps {
     theme: ThemeVariation,
@@ -30,16 +32,15 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     const myProjects = intl.getMyProjectsLabel()
     const scrollToMyProjects = () => scrollToSection('#myProjects')
 
-    const changeTheme = intl.getChangeThemeLabel()
-    const changeLanguage = intl.getChangeLanguageLabel()
+    const changeLanguageLabel = intl.getChangeLanguageLabel()
     return (
         <nav style={myStyles.navbar}>
             <h3 style={myStyles.label} onClick={scrollToAboutMe}>{aboutMe}</h3>
             <h3 style={myStyles.label} onClick={scrollToMyExperiences}>{myExperiences}</h3>
             <h3 style={myStyles.label} onClick={scrollToMyProjects}>{myProjects}</h3>
             <div>
-                <MyButton theme={theme} label={changeTheme} onClick={switchTheme} />
-                <MyButton theme={theme} label={changeLanguage} onClick={switchLanguage} />
+                <MyButton theme={theme} label={changeLanguageLabel} onClick={switchLanguage} />
+                <MyThemeToggle theme={theme} switchTheme={switchTheme} intl={intl}/>
             </div>
         </nav>
     );
