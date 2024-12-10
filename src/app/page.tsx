@@ -25,16 +25,26 @@ export default function Home() {
     }
   }, [themeVariation]);
 
-  const [isEnglish, setIsEnglish] = useState(true);
+  const [selectedLanguage, setLanguague] = useState('pt');
   const intl = useMemo<Intl>(() => {
-    return isEnglish ? new English() : new Portuguese()
-  }, [isEnglish]);
+    switch (selectedLanguage) {
+      case 'en':
+        return new English()
+      case 'pt':
+        return new Portuguese()
+      default:
+        return new English()
+    }
+  }, [selectedLanguage]);
 
   const previewTitle = "Hello, there!"
   const previewDescription = "This is my portfolio website! Lets check!";
   const previewImage = "/preview.png";
 
-  const switchLanguage = () => setIsEnglish(!isEnglish)
+  const switchLanguage = (newLanguage: string) => {
+    console.log(`Changing languague to ${newLanguage}`);
+    setLanguague(newLanguage)
+  }
   const switchTheme = () => {
     AppState.isDarkMode = !AppState.isDarkMode
     setThemeVariation(themeVariation === 1 ? 0 : themeVariation + 1)

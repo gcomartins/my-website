@@ -2,13 +2,14 @@ import React, { CSSProperties } from 'react';
 import ThemeVariation from '../../theme/theme';
 import MyButton from '../button/myButton';
 import Intl from '@/app/intl/language';
-import MyThemeToggle from '../toggle/myToggle';
+import MyThemeToggle from '../toggle/myThemeToggle';
 import AppState from '@/app/appState';
+import MyLanguageDropdown from '../dropdown/myLanguageDropdown';
 
 interface MyNavBarProps {
     theme: ThemeVariation,
     switchTheme: () => void,
-    switchLanguage: () => void,
+    switchLanguage: (newLanguage: string) => void,
     intl: Intl
 }
 
@@ -39,7 +40,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
             <h3 style={myStyles.label} onClick={scrollToMyExperiences}>{myExperiences}</h3>
             <h3 style={myStyles.label} onClick={scrollToMyProjects}>{myProjects}</h3>
             <div>
-                <MyButton theme={theme} label={changeLanguageLabel} onClick={switchLanguage} />
+                <MyLanguageDropdown initialValue='pt' theme={theme} handleLanguageChange={switchLanguage}/>
                 <MyThemeToggle theme={theme} switchTheme={switchTheme} intl={intl}/>
             </div>
         </nav>
