@@ -33,15 +33,17 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     const myProjects = intl.getMyProjectsLabel()
     const scrollToMyProjects = () => scrollToSection('#myProjects')
 
-    const changeLanguageLabel = intl.getChangeLanguageLabel()
     return (
         <nav style={myStyles.navbar}>
-            <h3 style={myStyles.label} onClick={scrollToAboutMe}>{aboutMe}</h3>
-            <h3 style={myStyles.label} onClick={scrollToMyExperiences}>{myExperiences}</h3>
-            <h3 style={myStyles.label} onClick={scrollToMyProjects}>{myProjects}</h3>
-            <div>
-                <MyLanguageDropdown initialValue='pt' theme={theme} handleLanguageChange={switchLanguage}/>
-                <MyThemeToggle theme={theme} switchTheme={switchTheme} intl={intl}/>
+            <div style={myStyles.labels}>
+                <h3 style={myStyles.label} onClick={scrollToAboutMe}>{aboutMe}</h3>
+                <h3 style={myStyles.label} onClick={scrollToMyExperiences}>{myExperiences}</h3>
+                <h3 style={myStyles.label} onClick={scrollToMyProjects}>{myProjects}</h3>
+            </div>
+            <div style={myStyles.spacing}></div>
+            <div style={myStyles.buttons}>
+                <MyLanguageDropdown initialValue='pt' theme={theme} handleLanguageChange={switchLanguage} />
+                <MyThemeToggle theme={theme} switchTheme={switchTheme} intl={intl} />
             </div>
         </nav>
     );
@@ -52,16 +54,29 @@ const handleStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (
         navbar: {
             width: '100vw',
             display: 'flex',
-            justifyContent: 'space-around',
             paddingTop: '20px',
             paddingBottom: '20px',
-            paddingRight: '10px',
-            paddingLeft: '10px',
+            paddingRight: '40px',
+            paddingLeft: '40px',
             transition: '0.7s',
             backgroundColor: theme.getBackgroundColor()
         },
+        labels: {
+            display: 'flex',
+            flex: 8,
+            justifyContent: 'space-around'
+        },
         label: {
             color: theme.getForegroundColor()
+        },
+        spacing: {
+            flex: 5
+        },
+        buttons: { 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '12px' ,
+            flex: 1,
         }
     }
 }
