@@ -23,7 +23,7 @@ class Portuguese implements Intl {
         return "React/React Native (1 ano)"
     }
     getThirdTechLabel(): string {
-        return "Javascript (1 ano)"
+        return "Javascript/Typescript (1 ano)"
     }
     getFourthTechLabel(): string {
         return "Flutter (1 ano e meio)"
