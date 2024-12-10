@@ -6,10 +6,9 @@ import React, { useState } from 'react';
 interface MyToggleProps {
     theme: ThemeVariation;
     switchTheme: () => void;
-    intl: Intl;
 }
 
-const MyThemeToggle: React.FC<MyToggleProps> = ({ theme, switchTheme, intl  }) => {
+const MyThemeToggle: React.FC<MyToggleProps> = ({ theme, switchTheme  }) => {
     const [isDarkMode, setDarkMode] = useState(AppState.isDarkMode);
     
     const toggleStyles: React.CSSProperties = {

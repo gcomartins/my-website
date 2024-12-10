@@ -1,9 +1,7 @@
 import React, { CSSProperties } from 'react';
 import ThemeVariation from '../../theme/theme';
-import MyButton from '../button/myButton';
 import Intl from '@/app/intl/language';
 import MyThemeToggle from '../toggle/myThemeToggle';
-import AppState from '@/app/appState';
 import MyLanguageDropdown from '../dropdown/myLanguageDropdown';
 
 interface MyNavBarProps {
@@ -43,7 +41,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
             <div style={myStyles.spacing}></div>
             <div style={myStyles.buttons}>
                 <MyLanguageDropdown initialValue='pt' theme={theme} handleLanguageChange={switchLanguage} />
-                <MyThemeToggle theme={theme} switchTheme={switchTheme} intl={intl} />
+                <MyThemeToggle theme={theme} switchTheme={switchTheme} />
             </div>
         </nav>
     );
