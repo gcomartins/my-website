@@ -79,6 +79,7 @@ const handleStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (
             paddingTop: "80px",
             paddingBottom: '80px',
             display: 'flex',
+            flexDirection: 'column',
             alignItems: 'center',
             gap: '36px',
         },
