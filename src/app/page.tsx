@@ -25,7 +25,7 @@ export default function Home() {
     }
   }, [themeVariation]);
 
-  const [selectedLanguage, setLanguague] = useState('pt');
+  const [selectedLanguage, setLanguague] = useState('en');
   const intl = useMemo<Intl>(() => {
     switch (selectedLanguage) {
       case 'en':

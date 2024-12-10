@@ -40,7 +40,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
             </div>
             <div style={myStyles.spacing}></div>
             <div style={myStyles.buttons}>
-                <MyLanguageDropdown initialValue='pt' theme={theme} handleLanguageChange={switchLanguage} />
+                <MyLanguageDropdown initialValue='en' theme={theme} handleLanguageChange={switchLanguage} />
                 <MyThemeToggle theme={theme} switchTheme={switchTheme} />
             </div>
         </nav>
