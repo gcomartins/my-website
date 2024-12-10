@@ -11,6 +11,9 @@ interface AboutMeProps {
 
 const AboutMe: React.FC<AboutMeProps> = ({ theme, intl }) => {
     const shouldShowTooltip = process.env.NEXT_PUBLIC_LITERALLY_ME;
+    const isProd = process.env.NODE_ENV === 'production'
+    const basePath = isProd ? '/my-website' : '.'
+    const imgPath = `${basePath}/spike.png`
 
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -20,7 +23,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ theme, intl }) => {
     };
 
     const myStyles = handleStyles(theme);
-    
+
     return (
         <>
             <div style={myStyles.content}>
@@ -31,7 +34,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ theme, intl }) => {
                     style={{ position: 'relative', display: 'inline-block' }}
                 >
                     <Image
-                        src='/my-website/spike.png'
+                        src={imgPath}
                         alt='My photo'
                         width={250}
                         height={250}
@@ -74,9 +77,11 @@ const handleStyles: (theme: ThemeVariation) => Record<string, CSSProperties> = (
             paddingLeft: "40px",
             paddingRight: "40px",
             paddingTop: "80px",
+            paddingBottom: '80px',
             display: 'flex',
             alignItems: 'center',
-            gap: '36px'
+            gap: '36px',
+            backgroundColor: 'red'
         },
         list: {
             color: theme.getForegroundColor(),

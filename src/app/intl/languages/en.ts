@@ -23,7 +23,7 @@ class English implements Intl {
         return "React/React Native (1 year)"
     }
     getThirdTechLabel(): string {
-        return "Javascript (1 year)"
+        return "Javascript/Typescript (1 year)"
     }
     getFourthTechLabel(): string {
         return "Flutter (1 and a half year)"

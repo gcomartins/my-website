@@ -3,7 +3,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   ...(isProd && { output: 'export' }),
-  basePath: '/my-website', 
+  ...(isProd && { basePath: '/my-website', }),
   trailingSlash: true,
   images: {
     unoptimized: true, 
