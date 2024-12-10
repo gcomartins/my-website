@@ -1,5 +1,4 @@
 import AppState from '@/app/appState';
-import Intl from '@/app/intl/language';
 import ThemeVariation from '@/app/theme/theme';
 import React, { useState } from 'react';
 
