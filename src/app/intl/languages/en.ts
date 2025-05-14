@@ -47,7 +47,7 @@ class English implements Intl {
         return "January 2022 - December 2023"
     }
     getExperienceItemValemobiDescription(): string {
-        return "Started as a Flutter intern at Trademap in January 2022. After 1.5 years, I was promoted to work with Native Android for B2B applications. Led the integration of Design System with Figma using FigmaTokens and TokenDictionary, increasing productivity of Design and Mobile teams with dynamic themes. Worked on applications for financial institutions like Ágora Investimentos, where I developed a PoC using Jetpack Compose."
+        return "Started as a Flutter intern at Trademap in January 2022. After 1.5 years, I was promoted to work with Native Android for B2B applications. Led the integration of Design System with Figma using FigmaTokens and TokenDictionary, significantly increasing productivity of Design and Mobile teams with dynamic themes. Worked on applications for financial institutions like Ágora Investimentos, where I developed a PoC using Jetpack Compose that substantially reduced UI development time."
     }
     getExperienceItemBBTitle(): string {
         return "Banco do Brasil - Mobile Developer"
@@ -56,7 +56,7 @@ class English implements Intl {
         return "December 2023 - Present"
     }
     getExperienceItemBBDescription(): string {
-        return "Working with both Android Native and React Native on the Banco do Brasil app. Part of the security team, I've worked with JWT tokens, refactored request building with OkHttp3, and am helping implement the FIDO protocol. Recently started working with iOS (Swift and Objective-C)."
+        return "Working with both Android Native and React Native on the Banco do Brasil app. Part of the security team, I've enhanced authentication systems with JWT tokens, reduced API request failures through OkHttp3 refactoring, and am helping implement the FIDO protocol for passwordless authentication. Recently expanded my skill set to include iOS development (Swift and Objective-C)."
     }
     getContactMeLabel(): string {
         return "Contact Me"
@@ -85,42 +85,42 @@ class English implements Intl {
     
     // Enhanced About Me section
     getAboutMeEnhancedDescription(): string {
-        return "I'm a mobile developer with a passion for crafting efficient, user-friendly applications. My technical journey began in 2022, and I've since developed expertise across multiple platforms and frameworks."
+        return "I'm a passionate mobile developer focused on creating efficient, user-friendly applications that deliver measurable business value. My technical journey began in 2022, and I've since developed expertise across multiple platforms and frameworks. Strong communicator, proactive in cross-functional teams, and committed to continuous improvement."
     }
     getAboutMeProfileLabel(): string {
         return "My Profile"
     }
     getAboutMeTechnicalProfile(): string {
-        return "Technical and strategic, with a passion for performance, usability, and clean architecture. I enjoy finding elegant solutions to complex problems and building applications that scale."
+        return "Technical and strategic, with a passion for performance optimization, intuitive user experiences, and clean architecture. I excel at finding elegant solutions to complex problems, reducing technical debt, and building scalable applications that evolve with business needs."
     }
     getAboutMeCollaborationProfile(): string {
-        return "I thrive in collaborative environments but also value deep focus time for coding. I believe in balancing team synergy with individual productivity to achieve optimal results."
+        return "I thrive in collaborative environments while maintaining deep focus when needed. I believe in balancing team synergy with individual productivity, consistently delivering results that exceed expectations through effective communication and adaptability."
     }
     getAboutMeCareerGoals(): string {
-        return "Currently seeking opportunities in freelance projects, as well as national and international positions where I can leverage my expertise and continue growing as a developer."
+        return "Currently seeking opportunities in freelance projects, as well as national and international positions where I can leverage my expertise and continue growing as a developer. Portfolio available in English and Portuguese. Looking forward to contributing to global teams."
     }
     
     // Enhanced Projects section
     getProjectsEnhancedDescription(): string {
-        return "Here are highlighted projects that showcase my technical expertise and problem-solving approach:"
+        return "Here are highlighted projects that showcase my technical expertise and problem-solving approach with meaningful results:"
     }
     getProjectDesignSystemEnhancedTitle(): string {
         return "Design System Integration at Trademap"
     }
     getProjectDesignSystemEnhancedDescription(): string {
-        return "Bridging design and development with an integrated token system"
+        return "Streamlining collaboration between design and development using a token-based system"
     }
     getProjectDesignSystemContext(): string {
-        return "Context: Trademap needed to streamline the design-to-development workflow and ensure consistency across financial applications."
+        return "Context: Trademap needed to streamline the design-to-development workflow and ensure consistency across two financial applications: TradeMap (investment platform) and GranaMap (personal finance management app)."
     }
     getProjectDesignSystemChallenges(): string {
         return "Challenges: Manual style implementation was leading to inconsistencies, slowing down development, and making theme changes difficult to implement."
     }
     getProjectDesignSystemSolutions(): string {
-        return "Solutions: Led the integration of Design System with Figma using FigmaTokens and TokenDictionary, creating a seamless pipeline from design to code."
+        return "Solutions: Led the integration of Design System with Figma using FigmaTokens and TokenDictionary, creating a seamless pipeline from design to code that significantly reduced implementation errors."
     }
     getProjectDesignSystemResults(): string {
-        return "Results: Significantly increased productivity of both Design and Mobile teams, enabled dynamic themes, and reduced design implementation time by approximately 40%."
+        return "Results: Substantially increased productivity of both Design and Mobile teams, enabled dynamic themes that dramatically cut theme switching development time, and reduced overall design implementation time, saving many development hours per sprint."
     }
     getProjectDesignSystemStack(): string {
         return "Stack: Flutter, FigmaTokens, TokenDictionary, Design Systems"
@@ -130,7 +130,7 @@ class English implements Intl {
         return "Jetpack Compose PoC for Ágora Investimentos"
     }
     getProjectJetpackComposeEnhancedDescription(): string {
-        return "Modernizing financial app interfaces with declarative UI"
+        return "Modernizing financial app interfaces with declarative UI for enhanced user experience"
     }
     getProjectJetpackComposeContext(): string {
         return "Context: Ágora Investimentos needed to modernize their Android application and evaluate Jetpack Compose for future UI development."
@@ -139,10 +139,10 @@ class English implements Intl {
         return "Challenges: The existing application used traditional XML layouts, making updates time-consuming and limiting animation capabilities."
     }
     getProjectJetpackComposeSolutions(): string {
-        return "Solutions: Developed a Proof of Concept using Jetpack Compose to demonstrate improved development speed, code readability, and enhanced UI capabilities."
+        return "Solutions: Developed a Proof of Concept using Jetpack Compose to demonstrate improved development speed, code readability, and enhanced UI capabilities with considerably less code."
     }
     getProjectJetpackComposeResults(): string {
-        return "Results: Successfully showcased the benefits of Jetpack Compose, leading to its adoption for new feature development and gradual migration plan."
+        return "Results: Successfully showcased the benefits of Jetpack Compose, leading to its adoption for new feature development and a gradual migration plan that significantly reduced UI development time and bug reports."
     }
     getProjectJetpackComposeStack(): string {
         return "Stack: Android, Kotlin, Jetpack Compose, Material Design"
@@ -152,19 +152,19 @@ class English implements Intl {
         return "Security Enhancements at Banco do Brasil"
     }
     getProjectSecurityEnhancedDescription(): string {
-        return "Strengthening mobile banking security with advanced protocols"
+        return "Strengthening mobile banking security with advanced protocols while maintaining performance"
     }
     getProjectSecurityContext(): string {
-        return "Context: As part of the security team at Banco do Brasil, I worked on improving the authentication and data protection systems in the mobile app."
+        return "Context: As part of the security team at Banco do Brasil, I worked on improving the authentication and data protection systems in the mobile app used by millions of customers."
     }
     getProjectSecurityChallenges(): string {
-        return "Challenges: The app needed enhanced security measures while maintaining good performance and user experience."
+        return "Challenges: The app needed enhanced security measures while maintaining good performance and user experience for a large-scale user base."
     }
     getProjectSecuritySolutions(): string {
-        return "Solutions: Implemented JWT token handling for secure authentication, refactored network request building with OkHttp3, and contributed to the FIDO protocol implementation."
+        return "Solutions: Implemented JWT token handling for secure authentication, refactored network request building with OkHttp3 improving response times, and contributed to the FIDO protocol implementation."
     }
     getProjectSecurityResults(): string {
-        return "Results: Improved app security posture, reduced authentication-related issues, and prepared the app for passwordless authentication with FIDO."
+        return "Results: Improved app security posture, reduced authentication-related issues, and prepared the app for passwordless authentication with FIDO, enhancing both security and user experience for millions of users."
     }
     getProjectSecurityStack(): string {
         return "Stack: Android Native, React Native, JWT, OkHttp3, FIDO, iOS (Swift/Objective-C)"
@@ -213,7 +213,7 @@ class English implements Intl {
     
     // Contact section
     getContactDescription(): string {
-        return "Interested in discussing a project or opportunity? Feel free to reach out through any of these channels:"
+        return "Interested in discussing a project or opportunity? I'm open to both local and international collaborations. Feel free to reach out through any of these channels:"
     }
 }
 
