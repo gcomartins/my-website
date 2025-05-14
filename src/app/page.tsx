@@ -10,6 +10,9 @@ import BlackTheme from "./theme/variations/blackTheme";
 import WhiteTheme from "./theme/variations/whiteTheme";
 import MyNavBar from "./components/navbar/myNavbar";
 import AboutMe from "./components/aboutMe/aboutMe";
+import Experience from "./components/experience/experience";
+import Projects from "./components/projects/projects";
+import Contact from "./components/contact/contact";
 import AppState from "./appState";
 
 export default function Home() {
@@ -37,8 +40,8 @@ export default function Home() {
     }
   }, [selectedLanguage]);
 
-  const previewTitle = "Hello, there!"
-  const previewDescription = "This is my portfolio website! Lets check!";
+  const previewTitle = "Guilherme's Portfolio";
+  const previewDescription = "Mobile developer with expertise in Android Native, React Native, Flutter, and iOS";
   const previewImage = "/preview.png";
 
   const switchLanguage = (newLanguage: string) => {
@@ -54,7 +57,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Hii</title>
+        <title>Guilherme Martins - Mobile Developer</title>
         <meta property='og:title' content={previewTitle} />
         <meta property='og:description' content={previewDescription} />
         <meta property='og:image' content={previewImage} />
@@ -64,6 +67,9 @@ export default function Home() {
       <div style={myStyles.page} className={styles.page}>
         <MyNavBar theme={theme} intl={intl} switchLanguage={switchLanguage} switchTheme={switchTheme} />
         <AboutMe theme={theme} intl={intl} />
+        <Experience theme={theme} intl={intl} />
+        <Projects theme={theme} intl={intl} />
+        <Contact theme={theme} intl={intl} />
       </div>
     </>
   );
