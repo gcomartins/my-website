@@ -80,6 +80,14 @@ p {
   animation-delay: 0.3s;
 }
 
+.fade-delay-4 {
+  animation-delay: 0.4s;
+}
+
+.fade-delay-5 {
+  animation-delay: 0.5s;
+}
+
 /* Project card hover effect */
 .project-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;

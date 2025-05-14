@@ -35,7 +35,7 @@ class Portuguese implements Intl {
         return "Minha Experiência"
     }
     getMyProjectsLabel(): string {
-        return "Meus projetos"
+        return "Minhas Realizações"
     }
     getTooltipOnImageLabel(): string {
         return "Literalmente eu!"
@@ -214,6 +214,184 @@ class Portuguese implements Intl {
     // Contact section
     getContactDescription(): string {
         return "Interessado em discutir um projeto ou oportunidade? Estou aberto a colaborações tanto locais quanto internacionais. Sinta-se à vontade para entrar em contato por qualquer um destes canais:"
+    }
+
+    // CapivaraHosting Collaborative Work section
+    getCollaborativeWorkLabel(): string {
+        return "Trabalhos Colaborativos"
+    }
+
+    getCollaborativeWorkDescription(): string {
+        return "Projetos desenvolvidos em colaboração com outros desenvolvedores na organização CapivaraHosting:"
+    }
+
+    getCapivaraHostingTitle(): string {
+        return "CapivaraHosting - Projetos Colaborativos"
+    }
+
+    getCapivaraHostingDescription(): string {
+        return "Trabalhando em conjunto com Matheu5Leone em soluções de hospedagem e aplicações web."
+    }
+
+    getCapivaraProject1Title(): string {
+        return "Sistema de Hospedagem Web"
+    }
+
+    getCapivaraProject1Description(): string {
+        return "Desenvolvimento de uma plataforma de hospedagem web escalável e de fácil manutenção"
+    }
+
+    getCapivaraProject1Context(): string {
+        return "Contexto: Identificamos a necessidade de uma solução de hospedagem mais acessível e flexível para desenvolvedores independentes e pequenas empresas."
+    }
+
+    getCapivaraProject1Challenges(): string {
+        return "Desafios: Implementar uma infraestrutura segura e escalável com recursos limitados, mantendo custos acessíveis e garantindo alta disponibilidade."
+    }
+
+    getCapivaraProject1Solutions(): string {
+        return "Soluções: Criamos uma arquitetura baseada em containers, automatizamos processos de deploy com CI/CD e implementamos monitoramento em tempo real."
+    }
+
+    getCapivaraProject1Results(): string {
+        return "Resultados: Desenvolvemos uma plataforma estável que suporta múltiplos projetos simultaneamente, com tempos de inatividade mínimos e recuperação rápida de falhas."
+    }
+
+    getCapivaraProject1Stack(): string {
+        return "Stack: Docker, Kubernetes, Nginx, GitHub Actions, Node.js, Prometheus"
+    }
+
+    getCapivaraProject2Title(): string {
+        return "APIs RESTful para Integrações"
+    }
+
+    getCapivaraProject2Description(): string {
+        return "Criação de APIs para integração entre sistemas de clientes e nossa infraestrutura"
+    }
+
+    getCapivaraProject2Context(): string {
+        return "Contexto: Nossos clientes precisavam de formas de integrar seus sistemas com nossa infraestrutura de forma programática e segura."
+    }
+
+    getCapivaraProject2Challenges(): string {
+        return "Desafios: Desenvolver APIs flexíveis, bem documentadas, seguras e com desempenho adequado para diferentes casos de uso."
+    }
+
+    getCapivaraProject2Solutions(): string {
+        return "Soluções: Implementamos uma arquitetura de microserviços com autenticação JWT, documentação automática com Swagger e rate limiting para proteção contra abusos."
+    }
+
+    getCapivaraProject2Results(): string {
+        return "Resultados: As APIs permitiram que clientes automatizassem processos de deploy, monitoramento e gestão de recursos, reduzindo intervenções manuais e melhorando a confiabilidade dos sistemas."
+    }
+
+    getCapivaraProject2Stack(): string {
+        return "Stack: Node.js, Express, MongoDB, JWT, Swagger, Redis"
+    }
+
+    // Vibe Coding Projects section
+    getVibeCodingLabel(): string {
+        return "Vibe Coding Projects"
+    }
+
+    getVibeCodingDescription(): string {
+        return "Projetos pessoais desenvolvidos com paixão por código e experiência do usuário:"
+    }
+
+    getVibeProject1Title(): string {
+        return "Finne - Gestor de Finanças Pessoais"
+    }
+
+    getVibeProject1Description(): string {
+        return "Aplicativo web para gestão inteligente de finanças pessoais"
+    }
+
+    getVibeProject1Context(): string {
+        return "Contexto: Identifiquei a necessidade de uma solução moderna e simples para gerenciamento de finanças pessoais, com foco em usabilidade e insights úteis."
+    }
+
+    getVibeProject1Challenges(): string {
+        return "Desafios: Desenvolver uma interface intuitiva que simplificasse a visualização de dados financeiros complexos e criar um sistema de categorização automática de transações."
+    }
+
+    getVibeProject1Solutions(): string {
+        return "Soluções: Implementei uma arquitetura moderna com React e Firebase, utilizando visualizações gráficas interativas e sistema de categorização baseado em padrões de texto."
+    }
+
+    getVibeProject1Results(): string {
+        return "Resultados: O Finne ajuda usuários a gerenciar suas finanças diárias, oferecendo insights sobre padrões de gastos e oportunidades de economia."
+    }
+
+    getVibeProject1Stack(): string {
+        return "Stack: React, Firebase, Material UI, Chart.js, TypeScript"
+    }
+
+    getVibeProject1Url(): string {
+        return "https://finne-ai-agent.firebaseapp.com/"
+    }
+
+    getVibeProject2Title(): string {
+        return "Portfolio Pessoal"
+    }
+
+    getVibeProject2Description(): string {
+        return "Website para exibição profissional de habilidades e experiências"
+    }
+
+    getVibeProject2Context(): string {
+        return "Contexto: Precisava de uma maneira elegante e funcional de apresentar minha experiência profissional, projetos e habilidades técnicas."
+    }
+
+    getVibeProject2Challenges(): string {
+        return "Desafios: Criar um design responsivo, minimalista e facilmente atualizável, com suporte a múltiplos idiomas e temas."
+    }
+
+    getVibeProject2Solutions(): string {
+        return "Soluções: Desenvolvi o site com Next.js, implementando componentes reutilizáveis, sistema de troca de temas e suporte a múltiplos idiomas."
+    }
+
+    getVibeProject2Results(): string {
+        return "Resultados: Um portfolio elegante e moderno que destaca eficientemente minhas habilidades e projetos para potenciais empregadores e clientes."
+    }
+
+    getVibeProject2Stack(): string {
+        return "Stack: Next.js, React, TypeScript, CSS-in-JS"
+    }
+
+    getVibeProject2Url(): string {
+        return "https://gcomartins.github.io/my-website/"
+    }
+
+    getVibeProject3Title(): string {
+        return "Two Guys - Portfolio de Estúdio Audiovisual"
+    }
+
+    getVibeProject3Description(): string {
+        return "Website para estúdio de produção audiovisual destacar seus serviços e projetos"
+    }
+
+    getVibeProject3Context(): string {
+        return "Contexto: Um estúdio de produção audiovisual precisava de uma presença online profissional para mostrar seu trabalho e atrair novos clientes."
+    }
+
+    getVibeProject3Challenges(): string {
+        return "Desafios: Criar um design visualmente impactante que destacasse o trabalho audiovisual do estúdio, mantendo boa performance e experiência de usuário."
+    }
+
+    getVibeProject3Solutions(): string {
+        return "Soluções: Desenvolvi um layout visualmente atraente com animações sutis, integração de vídeo e galeria de projetos responsiva."
+    }
+
+    getVibeProject3Results(): string {
+        return "Resultados: O site ajudou o estúdio a estabelecer sua presença online, destacando seu portfólio para agências e clientes potenciais como BAND, Jovem Pan e Nubank."
+    }
+
+    getVibeProject3Stack(): string {
+        return "Stack: React, HTML5, CSS3, JavaScript"
+    }
+
+    getVibeProject3Url(): string {
+        return "https://gcomartins.github.io/two-guys-webapp/"
     }
 }
 

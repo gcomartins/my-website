@@ -12,7 +12,9 @@ import MyNavBar from "./components/navbar/myNavbar";
 import AboutMe from "./components/aboutMe/aboutMe";
 import Experience from "./components/experience/experience";
 import Projects from "./components/projects/projects";
+import Collaborative from "./components/collaborative/collaborative";
 import Contact from "./components/contact/contact";
+import Vibe from "./components/vibe/vibe";
 import AppState from "./appState";
 
 export default function Home() {
@@ -69,6 +71,8 @@ export default function Home() {
         <AboutMe theme={theme} intl={intl} />
         <Experience theme={theme} intl={intl} />
         <Projects theme={theme} intl={intl} />
+        <Collaborative theme={theme} intl={intl} />
+        <Vibe theme={theme} intl={intl} />
         <Contact theme={theme} intl={intl} />
       </div>
     </>

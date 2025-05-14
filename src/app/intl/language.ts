@@ -77,6 +77,59 @@ interface Intl {
     
     // Contact section
     getContactDescription(): string
+    
+    // CapivaraHosting Collaborative Work section
+    getCollaborativeWorkLabel(): string
+    getCollaborativeWorkDescription(): string
+    getCapivaraHostingTitle(): string
+    getCapivaraHostingDescription(): string
+    
+    getCapivaraProject1Title(): string
+    getCapivaraProject1Description(): string
+    getCapivaraProject1Context(): string
+    getCapivaraProject1Challenges(): string
+    getCapivaraProject1Solutions(): string
+    getCapivaraProject1Results(): string
+    getCapivaraProject1Stack(): string
+    
+    getCapivaraProject2Title(): string
+    getCapivaraProject2Description(): string
+    getCapivaraProject2Context(): string
+    getCapivaraProject2Challenges(): string
+    getCapivaraProject2Solutions(): string
+    getCapivaraProject2Results(): string
+    getCapivaraProject2Stack(): string
+    
+    // Vibe Coding Projects section
+    getVibeCodingLabel(): string
+    getVibeCodingDescription(): string
+    
+    getVibeProject1Title(): string
+    getVibeProject1Description(): string
+    getVibeProject1Context(): string
+    getVibeProject1Challenges(): string
+    getVibeProject1Solutions(): string
+    getVibeProject1Results(): string
+    getVibeProject1Stack(): string
+    getVibeProject1Url(): string
+    
+    getVibeProject2Title(): string
+    getVibeProject2Description(): string
+    getVibeProject2Context(): string
+    getVibeProject2Challenges(): string
+    getVibeProject2Solutions(): string
+    getVibeProject2Results(): string
+    getVibeProject2Stack(): string
+    getVibeProject2Url(): string
+    
+    getVibeProject3Title(): string
+    getVibeProject3Description(): string
+    getVibeProject3Context(): string
+    getVibeProject3Challenges(): string
+    getVibeProject3Solutions(): string
+    getVibeProject3Results(): string
+    getVibeProject3Stack(): string
+    getVibeProject3Url(): string
 }
 
 export default Intl

@@ -60,6 +60,12 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     const myProjects = intl.getMyProjectsLabel();
     const scrollToMyProjects = () => scrollToSection('myProjects');
     
+    const collaborativeWork = intl.getCollaborativeWorkLabel();
+    const scrollToCollaborative = () => scrollToSection('collaborative');
+    
+    const vibeCoding = intl.getVibeCodingLabel();
+    const scrollToVibe = () => scrollToSection('vibe');
+    
     const contactMe = intl.getContactMeLabel();
     const scrollToContact = () => scrollToSection('contact');
 
@@ -82,7 +88,9 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
                         <h3 style={myStyles.label} className="nav-label animate-fadeIn fade-delay-1" onClick={scrollToAboutMe}>{aboutMe}</h3>
                         <h3 style={myStyles.label} className="nav-label animate-fadeIn fade-delay-2" onClick={scrollToMyExperiences}>{myExperiences}</h3>
                         <h3 style={myStyles.label} className="nav-label animate-fadeIn fade-delay-3" onClick={scrollToMyProjects}>{myProjects}</h3>
-                        <h3 style={myStyles.label} className="nav-label animate-fadeIn fade-delay-3" onClick={scrollToContact}>{contactMe}</h3>
+                        <h3 style={myStyles.label} className="nav-label animate-fadeIn fade-delay-4" onClick={scrollToCollaborative}>{collaborativeWork}</h3>
+                        <h3 style={myStyles.label} className="nav-label animate-fadeIn fade-delay-5" onClick={scrollToVibe}>{vibeCoding}</h3>
+                        <h3 style={myStyles.label} className="nav-label animate-fadeIn fade-delay-6" onClick={scrollToContact}>{contactMe}</h3>
                     </div>
                     <div style={myStyles.buttons}>
                         <MyLanguageDropdown initialValue='en' theme={theme} handleLanguageChange={switchLanguage} />
@@ -106,6 +114,8 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
                     <h3 style={myStyles.mobileLabel} onClick={scrollToAboutMe}>{aboutMe}</h3>
                     <h3 style={myStyles.mobileLabel} onClick={scrollToMyExperiences}>{myExperiences}</h3>
                     <h3 style={myStyles.mobileLabel} onClick={scrollToMyProjects}>{myProjects}</h3>
+                    <h3 style={myStyles.mobileLabel} onClick={scrollToCollaborative}>{collaborativeWork}</h3>
+                    <h3 style={myStyles.mobileLabel} onClick={scrollToVibe}>{vibeCoding}</h3>
                     <h3 style={myStyles.mobileLabel} onClick={scrollToContact}>{contactMe}</h3>
                     <div style={myStyles.mobileButtons}>
                         <MyLanguageDropdown initialValue='en' theme={theme} handleLanguageChange={switchLanguage} />
