@@ -3,6 +3,7 @@ import ThemeVariation from '../../theme/theme';
 import Intl from '@/app/intl/language';
 import MyThemeToggle from '../toggle/myThemeToggle';
 import MyLanguageDropdown from '../dropdown/myLanguageDropdown';
+import Image from 'next/image';
 
 interface MyNavBarProps {
     theme: ThemeVariation,
@@ -16,6 +17,10 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    
+    const isProd = process.env.NODE_ENV === 'production';
+    const basePath = isProd ? '/my-website' : '.';
+    const logoPath = `${basePath}/spike.png`;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -60,8 +65,14 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
 
     return (
         <nav style={myStyles.navbar}>
-            <div style={myStyles.logo} className="animate-fadeIn">
-                <span>GM</span>
+            <div style={myStyles.logo} className="animate-fadeIn" onClick={scrollToAboutMe}>
+                <Image
+                    src={logoPath}
+                    alt="Logo"
+                    width={40}
+                    height={40}
+                    style={myStyles.logoImage}
+                />
             </div>
 
             {/* Desktop Menu */}
@@ -128,10 +139,14 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean): Record<string
             boxShadow: isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none',
         },
         logo: {
-            color: theme.getForegroundColor(),
-            fontSize: '24px',
-            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
             cursor: 'pointer',
+        },
+        logoImage: {
+            borderRadius: '50%',
+            objectFit: 'cover',
+            transition: 'transform 0.3s ease',
         },
         desktopMenu: {
             display: 'flex',

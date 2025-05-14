@@ -47,7 +47,7 @@ class English implements Intl {
         return "January 2022 - December 2023"
     }
     getExperienceItemTrademapDescription(): string {
-        return "Started as a Flutter intern, later moved to Native Android development for B2B applications. Led the integration of Design System with Figma using FigmaTokens and TokenDictionary, increasing productivity of Design and Mobile teams with dynamic themes. Worked on applications for financial institutions like Ágora Investimentos, where I developed a PoC using Jetpack Compose."
+        return "Started as a Flutter intern at Trademap in January 2022. After 1.5 years, I was promoted to work with Native Android for B2B applications. Led the integration of Design System with Figma using FigmaTokens and TokenDictionary, increasing productivity of Design and Mobile teams with dynamic themes. Worked on applications for financial institutions like Ágora Investimentos, where I developed a PoC using Jetpack Compose."
     }
     getExperienceItemBBTitle(): string {
         return "Banco do Brasil - Mobile Developer"

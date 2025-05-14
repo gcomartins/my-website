@@ -13,7 +13,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ theme, intl }) => {
     const shouldShowTooltip = process.env.NEXT_PUBLIC_LITERALLY_ME;
     const isProd = process.env.NODE_ENV === 'production';
     const basePath = isProd ? '/my-website' : '.';
-    const imgPath = `${basePath}/spike.png`;
+    const imgPath = `${basePath}/my_profile_pic.jpg`;
 
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [tooltipVisible, setTooltipVisible] = useState(false);
@@ -176,6 +176,7 @@ const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, 
             border: `4px solid ${theme.getForegroundColor()}30`,
             boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
             transition: 'transform 0.3s ease',
+            objectFit: 'cover',
         },
         heroContent: {
             maxWidth: isMobile ? '100%' : '500px',

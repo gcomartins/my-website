@@ -47,7 +47,7 @@ class Portuguese implements Intl {
         return "Janeiro 2022 - Dezembro 2023"
     }
     getExperienceItemTrademapDescription(): string {
-        return "Comecei como estagiário em Flutter, depois migrei para desenvolvimento Android Nativo em aplicações B2B. Liderei a integração do Design System com o Figma usando FigmaTokens e TokenDictionary, aumentando a produtividade dos times de Design e Mobile com temas dinâmicos. Trabalhei em aplicativos para instituições financeiras como a Ágora Investimentos, onde desenvolvi uma PoC utilizando Jetpack Compose."
+        return "Comecei como estagiário de Flutter na Trademap em janeiro de 2022. Após 1,5 anos, fui promovido para trabalhar com Android Nativo em aplicações B2B. Liderei a integração do Design System com o Figma usando FigmaTokens e TokenDictionary, aumentando a produtividade dos times de Design e Mobile com temas dinâmicos. Trabalhei em aplicativos para instituições financeiras como a Ágora Investimentos, onde desenvolvi uma PoC utilizando Jetpack Compose."
     }
     getExperienceItemBBTitle(): string {
         return "Banco do Brasil - Desenvolvedor Mobile"
