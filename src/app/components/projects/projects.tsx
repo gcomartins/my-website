@@ -11,8 +11,11 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({ theme, intl }) => {
     const [isMobile, setIsMobile] = useState(false);
     const [activeProject, setActiveProject] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
+        console.log("Projects component mounted with ID:", document.getElementById('myProjects')?.id);
+        
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
@@ -25,7 +28,14 @@ const Projects: React.FC<ProjectsProps> = ({ theme, intl }) => {
         };
     }, []);
 
-    const myStyles = handleStyles(theme, isMobile);
+    const handleProjectChange = (index: number) => {
+        if (index === activeProject) return;
+        setIsAnimating(true);
+        setActiveProject(index);
+        setTimeout(() => setIsAnimating(false), 300);
+    };
+
+    const myStyles = handleStyles(theme, isMobile, isAnimating);
 
     const projects = [
         {
@@ -91,53 +101,123 @@ const Projects: React.FC<ProjectsProps> = ({ theme, intl }) => {
                             ...myStyles.projectTab,
                             ...(activeProject === index ? myStyles.activeTab : {})
                         }}
-                        onClick={() => setActiveProject(index)}
+                        onClick={() => handleProjectChange(index)}
+                        className={activeProject === index ? "active-tab" : ""}
                     >
                         <div style={myStyles.tabIcon}>{project.icon}</div>
                         <div style={myStyles.tabTextContainer}>
-                            <h3 style={myStyles.tabTitle}>{project.title.split(' at ')[0]}</h3>
+                            <h3 style={myStyles.tabTitle}>
+                                {project.title.includes(' at ') 
+                                    ? project.title.split(' at ')[0] 
+                                    : project.title}
+                            </h3>
                             {!isMobile && <p style={myStyles.tabSubtitle}>{project.subtitle}</p>}
                         </div>
                     </div>
                 ))}
             </div>
             
-            <div style={myStyles.projectDetail} className="animate-fadeIn">
+            <div style={myStyles.projectDetail} className={isAnimating ? "fade-out" : "fade-in"}>
                 <h3 style={myStyles.detailTitle}>{projects[activeProject].title}</h3>
                 <p style={myStyles.detailSubtitle}>{projects[activeProject].subtitle}</p>
                 
                 <div style={myStyles.detailSection}>
                     <div style={myStyles.detailItem}>
-                        <h4 style={myStyles.detailItemTitle}>{projects[activeProject].context.split(': ')[0]}</h4>
-                        <p style={myStyles.detailItemText}>{projects[activeProject].context.split(': ')[1]}</p>
+                        <h4 style={myStyles.detailItemTitle}>
+                            {projects[activeProject].context.includes(': ') 
+                                ? projects[activeProject].context.split(': ')[0] 
+                                : 'Context'}
+                        </h4>
+                        <p style={myStyles.detailItemText}>
+                            {projects[activeProject].context.includes(': ') 
+                                ? projects[activeProject].context.split(': ')[1] 
+                                : projects[activeProject].context}
+                        </p>
                     </div>
                     
                     <div style={myStyles.detailItem}>
-                        <h4 style={myStyles.detailItemTitle}>{projects[activeProject].challenges.split(': ')[0]}</h4>
-                        <p style={myStyles.detailItemText}>{projects[activeProject].challenges.split(': ')[1]}</p>
+                        <h4 style={myStyles.detailItemTitle}>
+                            {projects[activeProject].challenges.includes(': ') 
+                                ? projects[activeProject].challenges.split(': ')[0] 
+                                : 'Challenges'}
+                        </h4>
+                        <p style={myStyles.detailItemText}>
+                            {projects[activeProject].challenges.includes(': ') 
+                                ? projects[activeProject].challenges.split(': ')[1] 
+                                : projects[activeProject].challenges}
+                        </p>
                     </div>
                     
                     <div style={myStyles.detailItem}>
-                        <h4 style={myStyles.detailItemTitle}>{projects[activeProject].solutions.split(': ')[0]}</h4>
-                        <p style={myStyles.detailItemText}>{projects[activeProject].solutions.split(': ')[1]}</p>
+                        <h4 style={myStyles.detailItemTitle}>
+                            {projects[activeProject].solutions.includes(': ') 
+                                ? projects[activeProject].solutions.split(': ')[0] 
+                                : 'Solutions'}
+                        </h4>
+                        <p style={myStyles.detailItemText}>
+                            {projects[activeProject].solutions.includes(': ') 
+                                ? projects[activeProject].solutions.split(': ')[1] 
+                                : projects[activeProject].solutions}
+                        </p>
                     </div>
                     
                     <div style={myStyles.detailItem}>
-                        <h4 style={myStyles.detailItemTitle}>{projects[activeProject].results.split(': ')[0]}</h4>
-                        <p style={myStyles.detailItemText}>{projects[activeProject].results.split(': ')[1]}</p>
+                        <h4 style={myStyles.detailItemTitle}>
+                            {projects[activeProject].results.includes(': ') 
+                                ? projects[activeProject].results.split(': ')[0] 
+                                : 'Results'}
+                        </h4>
+                        <p style={myStyles.detailItemText}>
+                            {projects[activeProject].results.includes(': ') 
+                                ? projects[activeProject].results.split(': ')[1] 
+                                : projects[activeProject].results}
+                        </p>
                     </div>
                     
                     <div style={myStyles.detailItem}>
-                        <h4 style={myStyles.detailItemTitle}>{projects[activeProject].stack.split(': ')[0]}</h4>
-                        <p style={myStyles.detailItemText}>{projects[activeProject].stack.split(': ')[1]}</p>
+                        <h4 style={myStyles.detailItemTitle}>
+                            {projects[activeProject].stack.includes(': ') 
+                                ? projects[activeProject].stack.split(': ')[0] 
+                                : 'Tech Stack'}
+                        </h4>
+                        <p style={myStyles.detailItemText}>
+                            {projects[activeProject].stack.includes(': ') 
+                                ? projects[activeProject].stack.split(': ')[1] 
+                                : projects[activeProject].stack}
+                        </p>
                     </div>
                 </div>
             </div>
+
+            <style jsx>{`
+                .fade-in {
+                    opacity: 1;
+                    transition: opacity 0.3s ease;
+                }
+                .fade-out {
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                .active-tab {
+                    position: relative;
+                }
+                .active-tab:after {
+                    content: '';
+                    position: absolute;
+                    bottom: -2px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 40%;
+                    height: 3px;
+                    background-color: ${theme.getForegroundColor()};
+                    border-radius: 3px;
+                }
+            `}</style>
         </div>
     );
 };
 
-const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, CSSProperties> => {
+const handleStyles = (theme: ThemeVariation, isMobile: boolean, isAnimating: boolean): Record<string, CSSProperties> => {
     return {
         container: {
             paddingLeft: isMobile ? "20px" : "40px",
@@ -173,6 +253,7 @@ const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, 
             gap: '15px',
             marginBottom: '30px',
             justifyContent: 'center',
+            flexWrap: isMobile ? 'nowrap' : 'wrap',
         },
         projectTab: {
             backgroundColor: theme.getBackgroundColor(),
@@ -185,13 +266,16 @@ const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, 
             border: `1px solid ${theme.getForegroundColor()}20`,
             transition: 'all 0.3s ease',
             boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-            flexBasis: isMobile ? 'auto' : '33%',
-            flexGrow: isMobile ? 0 : 1,
+            flexBasis: isMobile ? 'auto' : '30%',
+            flexGrow: isMobile ? 0 : 0,
+            position: 'relative',
+            overflow: 'hidden',
         },
         activeTab: {
             borderColor: `${theme.getForegroundColor()}80`,
             boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
             transform: 'translateY(-2px)',
+            backgroundColor: `${theme.getBackgroundColor()}`,
         },
         tabIcon: {
             width: '40px',
@@ -202,12 +286,14 @@ const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, 
             justifyContent: 'center',
             alignItems: 'center',
             flexShrink: 0,
+            transition: 'all 0.3s ease',
         },
         tabTextContainer: {
             display: 'flex',
             flexDirection: 'column',
             gap: '5px',
             overflow: 'hidden',
+            flexGrow: 1,
         },
         tabTitle: {
             color: theme.getForegroundColor(),
@@ -216,6 +302,7 @@ const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, 
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
+            fontWeight: 'bold',
         },
         tabSubtitle: {
             color: `${theme.getForegroundColor()}80`,
@@ -231,6 +318,8 @@ const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, 
             padding: '25px',
             border: `1px solid ${theme.getForegroundColor()}20`,
             boxShadow: '0 5px 25px rgba(0, 0, 0, 0.05)',
+            opacity: isAnimating ? 0 : 1,
+            transition: 'opacity 0.3s ease',
         },
         detailTitle: {
             color: theme.getForegroundColor(),
@@ -251,6 +340,7 @@ const handleStyles = (theme: ThemeVariation, isMobile: boolean): Record<string, 
         detailItem: {
             borderBottom: `1px solid ${theme.getForegroundColor()}10`,
             paddingBottom: '15px',
+            transition: 'all 0.3s ease',
         },
         detailItemTitle: {
             color: theme.getForegroundColor(),

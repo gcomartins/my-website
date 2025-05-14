@@ -86,7 +86,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
                     </div>
                     <div style={myStyles.buttons}>
                         <MyLanguageDropdown initialValue='en' theme={theme} handleLanguageChange={switchLanguage} />
-                        <MyThemeToggle theme={theme} switchTheme={switchTheme} />
+                        <MyThemeToggle switchTheme={switchTheme} />
                     </div>
                 </div>
             )}
@@ -109,7 +109,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
                     <h3 style={myStyles.mobileLabel} onClick={scrollToContact}>{contactMe}</h3>
                     <div style={myStyles.mobileButtons}>
                         <MyLanguageDropdown initialValue='en' theme={theme} handleLanguageChange={switchLanguage} />
-                        <MyThemeToggle theme={theme} switchTheme={switchTheme} />
+                        <MyThemeToggle switchTheme={switchTheme} />
                     </div>
                 </div>
             )}
