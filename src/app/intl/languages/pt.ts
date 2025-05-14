@@ -40,13 +40,13 @@ class Portuguese implements Intl {
     getTooltipOnImageLabel(): string {
         return "Literalmente eu!"
     }
-    getExperienceItemTrademapTitle(): string {
-        return "Trademap - Desenvolvedor Mobile"
+    getExperienceItemValemobiTitle(): string {
+        return "Valemobi - Desenvolvedor Mobile"
     }
-    getExperienceItemTrademapPeriod(): string {
+    getExperienceItemValemobiPeriod(): string {
         return "Janeiro 2022 - Dezembro 2023"
     }
-    getExperienceItemTrademapDescription(): string {
+    getExperienceItemValemobiDescription(): string {
         return "Comecei como estagiário de Flutter na Trademap em janeiro de 2022. Após 1,5 anos, fui promovido para trabalhar com Android Nativo em aplicações B2B. Liderei a integração do Design System com o Figma usando FigmaTokens e TokenDictionary, aumentando a produtividade dos times de Design e Mobile com temas dinâmicos. Trabalhei em aplicativos para instituições financeiras como a Ágora Investimentos, onde desenvolvi uma PoC utilizando Jetpack Compose."
     }
     getExperienceItemBBTitle(): string {

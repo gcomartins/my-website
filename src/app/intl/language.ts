@@ -12,9 +12,9 @@ interface Intl {
     getMyExperienceLabel(): string
     getMyProjectsLabel(): string
     getTooltipOnImageLabel(): string
-    getExperienceItemTrademapTitle(): string
-    getExperienceItemTrademapPeriod(): string
-    getExperienceItemTrademapDescription(): string
+    getExperienceItemValemobiTitle(): string
+    getExperienceItemValemobiPeriod(): string
+    getExperienceItemValemobiDescription(): string
     getExperienceItemBBTitle(): string
     getExperienceItemBBPeriod(): string
     getExperienceItemBBDescription(): string

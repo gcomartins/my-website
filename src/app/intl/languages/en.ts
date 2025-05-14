@@ -40,13 +40,13 @@ class English implements Intl {
     getTooltipOnImageLabel(): string {
         return "Literally me!"
     }
-    getExperienceItemTrademapTitle(): string {
-        return "Trademap - Mobile Developer"
+    getExperienceItemValemobiTitle(): string {
+        return "Valemobi - Mobile Developer"
     }
-    getExperienceItemTrademapPeriod(): string {
+    getExperienceItemValemobiPeriod(): string {
         return "January 2022 - December 2023"
     }
-    getExperienceItemTrademapDescription(): string {
+    getExperienceItemValemobiDescription(): string {
         return "Started as a Flutter intern at Trademap in January 2022. After 1.5 years, I was promoted to work with Native Android for B2B applications. Led the integration of Design System with Figma using FigmaTokens and TokenDictionary, increasing productivity of Design and Mobile teams with dynamic themes. Worked on applications for financial institutions like Ágora Investimentos, where I developed a PoC using Jetpack Compose."
     }
     getExperienceItemBBTitle(): string {

@@ -45,9 +45,9 @@ const Experience: React.FC<ExperienceProps> = ({ theme, intl }) => {
                 <div style={myStyles.experienceItem} className="animate-fadeIn fade-delay-1">
                     <div style={myStyles.timelineDot}></div>
                     <div style={myStyles.experienceContent} className="experience-card">
-                        <h3 style={myStyles.companyTitle}>{intl.getExperienceItemTrademapTitle()}</h3>
-                        <span style={myStyles.period}>{intl.getExperienceItemTrademapPeriod()}</span>
-                        <p style={myStyles.description}>{intl.getExperienceItemTrademapDescription()}</p>
+                        <h3 style={myStyles.companyTitle}>{intl.getExperienceItemValemobiTitle()}</h3>
+                        <span style={myStyles.period}>{intl.getExperienceItemValemobiPeriod()}</span>
+                        <p style={myStyles.description}>{intl.getExperienceItemValemobiDescription()}</p>
                     </div>
                 </div>
             </div>
