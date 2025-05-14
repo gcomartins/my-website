@@ -262,30 +262,58 @@ class English implements Intl {
     }
 
     getCapivaraProject2Title(): string {
-        return "RESTful APIs for Integrations"
+        return "Minecraft Server Hosting"
     }
 
     getCapivaraProject2Description(): string {
-        return "Creation of APIs for integration between client systems and our infrastructure"
+        return "Serverless solution for dynamic Minecraft server deployment using AWS"
     }
 
     getCapivaraProject2Context(): string {
-        return "Context: Our clients needed ways to integrate their systems with our infrastructure programmatically and securely."
+        return "Context: We developed a flexible and cost-effective hosting solution for Minecraft servers that automatically scales based on demand."
     }
 
     getCapivaraProject2Challenges(): string {
-        return "Challenges: Developing flexible, well-documented, secure APIs with adequate performance for different use cases."
+        return "Challenges: Creating an efficient deployment system that minimizes costs during idle periods while ensuring quick server availability when needed."
     }
 
     getCapivaraProject2Solutions(): string {
-        return "Solutions: We implemented a microservices architecture with JWT authentication, automatic documentation with Swagger, and rate limiting for protection against abuse."
+        return "Solutions: We leveraged AWS Serverless architecture to generate Minecraft servers from Dockerfiles, enabling on-demand provisioning and automatic scaling."
     }
 
     getCapivaraProject2Results(): string {
-        return "Results: The APIs allowed clients to automate deployment, monitoring, and resource management processes, reducing manual interventions and improving system reliability."
+        return "Results: A flexible hosting platform that allows users to deploy custom Minecraft servers with minimal latency and pay only for actual usage time."
     }
 
     getCapivaraProject2Stack(): string {
+        return "Stack: AWS Lambda, Docker, Terraform, Node.js, AWS API Gateway, DynamoDB"
+    }
+
+    getCapivaraProject3Title(): string {
+        return "RESTful APIs for Integrations"
+    }
+
+    getCapivaraProject3Description(): string {
+        return "Creation of APIs for integration between client systems and our infrastructure"
+    }
+
+    getCapivaraProject3Context(): string {
+        return "Context: Our clients needed ways to integrate their systems with our infrastructure programmatically and securely."
+    }
+
+    getCapivaraProject3Challenges(): string {
+        return "Challenges: Developing flexible, well-documented, secure APIs with adequate performance for different use cases."
+    }
+
+    getCapivaraProject3Solutions(): string {
+        return "Solutions: We implemented a microservices architecture with JWT authentication, automatic documentation with Swagger, and rate limiting for protection against abuse."
+    }
+
+    getCapivaraProject3Results(): string {
+        return "Results: The APIs allowed clients to automate deployment, monitoring, and resource management processes, reducing manual interventions and improving system reliability."
+    }
+
+    getCapivaraProject3Stack(): string {
         return "Stack: Node.js, Express, MongoDB, JWT, Swagger, Redis"
     }
 

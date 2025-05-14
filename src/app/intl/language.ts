@@ -100,6 +100,14 @@ interface Intl {
     getCapivaraProject2Results(): string
     getCapivaraProject2Stack(): string
     
+    getCapivaraProject3Title(): string
+    getCapivaraProject3Description(): string
+    getCapivaraProject3Context(): string
+    getCapivaraProject3Challenges(): string
+    getCapivaraProject3Solutions(): string
+    getCapivaraProject3Results(): string
+    getCapivaraProject3Stack(): string
+    
     // Vibe Coding Projects section
     getVibeCodingLabel(): string
     getVibeCodingDescription(): string
