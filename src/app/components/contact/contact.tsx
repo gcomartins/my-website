@@ -53,7 +53,7 @@ const Contact: React.FC<ContactProps> = ({ theme, intl }) => {
             
             <div style={myStyles.contactWrapper} className="animate-fadeIn fade-delay-1">
                 <p style={myStyles.contactText}>
-                    Interested in working together? Feel free to reach out through any of these channels:
+                    {intl.getContactDescription()}
                 </p>
                 
                 <div style={myStyles.contactLinks}>
@@ -68,7 +68,7 @@ const Contact: React.FC<ContactProps> = ({ theme, intl }) => {
                         <span>GitHub</span>
                     </a>
                     <a 
-                        href="https://www.linkedin.com/in/guilherme-martins-854325177/" 
+                        href="https://www.linkedin.com/in/gcomartins/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         style={myStyles.link}
@@ -78,7 +78,7 @@ const Contact: React.FC<ContactProps> = ({ theme, intl }) => {
                         <span>LinkedIn</span>
                     </a>
                     <a 
-                        href="mailto:youremail@example.com" 
+                        href="mailto:gcomartins@gmail.com" 
                         style={myStyles.link}
                         className="contact-link"
                     >
