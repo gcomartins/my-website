@@ -41,6 +41,24 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
         };
     }, []);
 
+    // Efeito para controlar o scroll quando o menu mobile está aberto
+    useEffect(() => {
+        if (isMobile) {
+            if (isOpen) {
+                // Desativa o scroll quando o menu está aberto
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Reativa o scroll quando o menu está fechado
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Limpa o efeito quando o componente é desmontado
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [isOpen, isMobile]);
+
     const scrollToSection = (id: string) => {
         const section = document.getElementById(id);
         if (section) {
