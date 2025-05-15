@@ -13,7 +13,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ theme, intl }) => {
     const shouldShowTooltip = process.env.NEXT_PUBLIC_LITERALLY_ME;
     const isProd = process.env.NODE_ENV === 'production';
     const basePath = isProd ? '/my-website' : '.';
-    const imgPath = `${basePath}/my_profile_pic.jpg`;
+    const imgPath = `${basePath}/my_profile_pic.png`;
 
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [tooltipVisible, setTooltipVisible] = useState(false);
