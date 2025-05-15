@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState, useEffect } from 'react';
+import React, { CSSProperties, useState, useEffect, useCallback } from 'react';
 import ThemeVariation from '../../theme/theme';
 import Intl from '@/app/intl/language';
 import MyThemeToggle from '../toggle/myThemeToggle';
@@ -17,16 +17,40 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [visible, setVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     
     const isProd = process.env.NODE_ENV === 'production';
     const basePath = isProd ? '/my-website' : '.';
     const logoPath = `${basePath}/spike.png`;
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
-        };
+    const handleScroll = useCallback(() => {
+        const currentScrollY = window.scrollY;
+        
+        // Determina se a página foi scrollada além de um limite
+        setIsScrolled(currentScrollY > 20);
+        
+        // Sempre visível no topo da página
+        if (currentScrollY < 20) {
+            setVisible(true);
+            setLastScrollY(currentScrollY);
+            return;
+        }
+        
+        // Mostra a navbar quando rola para cima
+        if (currentScrollY < lastScrollY) {
+            setVisible(true);
+        } 
+        // Esconde a navbar quando rola para baixo e já está um pouco abaixo do topo
+        else if (currentScrollY > lastScrollY && currentScrollY > 150) {
+            setVisible(false);
+        }
+        
+        // Atualiza a posição do último scroll
+        setLastScrollY(currentScrollY);
+    }, [lastScrollY]);
 
+    useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
@@ -39,7 +63,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [handleScroll]);
 
     // Efeito para controlar o scroll quando o menu mobile está aberto
     useEffect(() => {
@@ -47,6 +71,8 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
             if (isOpen) {
                 // Desativa o scroll quando o menu está aberto
                 document.body.style.overflow = 'hidden';
+                // Força a navbar a ficar visível quando o menu está aberto
+                setVisible(true);
             } else {
                 // Reativa o scroll quando o menu está fechado
                 document.body.style.overflow = 'auto';
@@ -67,7 +93,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
         }
     };
 
-    const myStyles = handleStyles(theme, isScrolled, isOpen);
+    const myStyles = handleStyles(theme, isScrolled, isOpen, visible);
 
     const aboutMe = intl.getAboutMeLabel();
     const scrollToAboutMe = () => scrollToSection('aboutMe');
@@ -126,9 +152,30 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
                 </div>
             )}
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Overlay */}
             {isMobile && (
-                <div style={myStyles.mobileMenu}>
+                <div 
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: theme.getBackgroundColor(),
+                        zIndex: 90,
+                        opacity: isOpen ? 1 : 0,
+                        visibility: isOpen ? 'visible' : 'hidden',
+                        transition: 'opacity 0.3s ease, visibility 0.3s ease',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '60px 20px 40px',
+                        overflow: 'auto',
+                        width: '100vw',
+                        height: '100vh'
+                    }}
+                >
                     <h3 style={myStyles.mobileLabel} onClick={scrollToAboutMe}>{aboutMe}</h3>
                     <h3 style={myStyles.mobileLabel} onClick={scrollToMyExperiences}>{myExperiences}</h3>
                     <h3 style={myStyles.mobileLabel} onClick={scrollToMyProjects}>{myProjects}</h3>
@@ -145,7 +192,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     );
 };
 
-const handleStyles = (theme: ThemeVariation, isScrolled: boolean, isOpen: boolean): Record<string, CSSProperties> => {
+const handleStyles = (theme: ThemeVariation, isScrolled: boolean, isOpen: boolean, visible: boolean): Record<string, CSSProperties> => {
     return {
         navbar: {
             width: '100%',
@@ -156,15 +203,19 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean, isOpen: boolea
             paddingBottom: isScrolled ? '10px' : '20px',
             paddingRight: '20px',
             paddingLeft: '20px',
-            transition: 'all 0.3s ease',
             backgroundColor: isScrolled 
                 ? `${theme.getBackgroundColor()}ee` 
                 : theme.getBackgroundColor(),
-            position: 'sticky',
+            position: 'fixed',
             top: 0,
+            left: 0,
+            right: 0,
             zIndex: 100,
             backdropFilter: isScrolled ? 'blur(10px)' : 'none',
             boxShadow: isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none',
+            transform: visible ? 'translateY(0)' : 'translateY(-100%)',
+            opacity: visible ? 1 : 0,
+            transition: 'transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease',
         },
         logo: {
             display: 'flex',
@@ -203,7 +254,8 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean, isOpen: boolea
             width: '24px',
             height: '18px',
             cursor: 'pointer',
-            zIndex: 101,
+            zIndex: 110,
+            position: 'relative',
         },
         menuBar: {
             width: '100%',
@@ -217,6 +269,8 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean, isOpen: boolea
             left: 0,
             right: 0,
             bottom: 0,
+            width: '100vw',
+            height: '100vh',
             backgroundColor: theme.getBackgroundColor(),
             display: 'flex',
             flexDirection: 'column',
@@ -228,22 +282,25 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean, isOpen: boolea
             visibility: isOpen ? 'visible' : 'hidden',
             transition: 'opacity 0.3s ease, visibility 0.3s ease',
             paddingTop: '60px',
+            overflow: 'auto',
         },
         mobileLabel: {
             color: theme.getForegroundColor(),
             cursor: 'pointer',
-            fontSize: '22px',
-            padding: '15px 0',
-            fontWeight: '500',
+            fontSize: '24px',
+            padding: '20px 0',
+            fontWeight: '600',
             textAlign: 'center',
             width: '100%',
+            transition: 'opacity 0.3s ease',
         },
         mobileButtons: {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '20px',
-            marginTop: '20px',
+            gap: '30px',
+            marginTop: '40px',
+            width: '100%',
         },
     };
 };
