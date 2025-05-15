@@ -49,7 +49,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
         }
     };
 
-    const myStyles = handleStyles(theme, isScrolled);
+    const myStyles = handleStyles(theme, isScrolled, isOpen);
 
     const aboutMe = intl.getAboutMeLabel();
     const scrollToAboutMe = () => scrollToSection('aboutMe');
@@ -109,7 +109,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
             )}
 
             {/* Mobile Menu */}
-            {isMobile && isOpen && (
+            {isMobile && (
                 <div style={myStyles.mobileMenu}>
                     <h3 style={myStyles.mobileLabel} onClick={scrollToAboutMe}>{aboutMe}</h3>
                     <h3 style={myStyles.mobileLabel} onClick={scrollToMyExperiences}>{myExperiences}</h3>
@@ -127,7 +127,7 @@ const MyNavBar: React.FC<MyNavBarProps> = (props: MyNavBarProps) => {
     );
 };
 
-const handleStyles = (theme: ThemeVariation, isScrolled: boolean): Record<string, CSSProperties> => {
+const handleStyles = (theme: ThemeVariation, isScrolled: boolean, isOpen: boolean): Record<string, CSSProperties> => {
     return {
         navbar: {
             width: '100%',
@@ -136,8 +136,8 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean): Record<string
             alignItems: 'center',
             paddingTop: isScrolled ? '10px' : '20px',
             paddingBottom: isScrolled ? '10px' : '20px',
-            paddingRight: '40px',
-            paddingLeft: '40px',
+            paddingRight: '20px',
+            paddingLeft: '20px',
             transition: 'all 0.3s ease',
             backgroundColor: isScrolled 
                 ? `${theme.getBackgroundColor()}ee` 
@@ -185,6 +185,7 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean): Record<string
             width: '24px',
             height: '18px',
             cursor: 'pointer',
+            zIndex: 101,
         },
         menuBar: {
             width: '100%',
@@ -193,32 +194,38 @@ const handleStyles = (theme: ThemeVariation, isScrolled: boolean): Record<string
             transition: 'all 0.3s ease',
         },
         mobileMenu: {
-            position: 'absolute',
-            top: '100%',
+            position: 'fixed',
+            top: 0,
             left: 0,
             right: 0,
+            bottom: 0,
             backgroundColor: theme.getBackgroundColor(),
-            padding: '20px',
             display: 'flex',
             flexDirection: 'column',
             gap: '20px',
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-            zIndex: 90,
-            animation: 'fadeIn 0.3s ease-out forwards',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 99,
+            opacity: isOpen ? 1 : 0,
+            visibility: isOpen ? 'visible' : 'hidden',
+            transition: 'opacity 0.3s ease, visibility 0.3s ease',
+            paddingTop: '60px',
         },
         mobileLabel: {
             color: theme.getForegroundColor(),
             cursor: 'pointer',
-            fontSize: '18px',
-            padding: '10px 0',
-            borderBottom: `1px solid ${theme.getForegroundColor()}30`,
+            fontSize: '22px',
+            padding: '15px 0',
+            fontWeight: '500',
+            textAlign: 'center',
+            width: '100%',
         },
         mobileButtons: {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '12px',
-            marginTop: '10px',
+            gap: '20px',
+            marginTop: '20px',
         },
     };
 };
