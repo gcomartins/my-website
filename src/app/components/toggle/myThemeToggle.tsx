@@ -87,7 +87,7 @@ const MyThemeToggle: React.FC<MyToggleProps> = ({ switchTheme  }) => {
                 color: isDarkMode ? '#f1c40f' : '#f39c12',
                 opacity: 0.7
             }}>
-                {isDarkMode ? '🌙' : '☀️'}
+                {!isDarkMode ? '🌙' : '☀️'}
             </span>
         </div>
     );
